@@ -1,4 +1,4 @@
-import SignUp from "../components/forms/SignUp"
+import SignIn from "../components/forms/SignIn"
 
 const LandingPage = () => {
     return (
@@ -17,7 +17,7 @@ const LandingPage = () => {
                 </div>
                 <div className="relative flex items-center min-w-40">
                     <div className="rounded-lg border-2 border-borderBase bg-bgContrast w-[25vw] h-[55vh]">
-                        <SignUp />
+                        <SignIn />
                     </div>
                 </div>
             </section>
