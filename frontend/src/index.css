@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  @apply text-lightTextBase dark:text-darkTextBase;
+}
+
+.sign-in-link {
+  @apply text-lightLinkBase hover:text-lightLinkAccent dark:text-darkLinkBase dark:hover:text-darkLinkAccent;
+}
+
+.sign-in-input {
+  @apply bg-white dark:bg-darkBgBase placeholder:text-lightBorderBase border-2 border-lightBorderBase dark:border-darkBorderBase;
+}
+
+.sign-in-button {
+  @apply bg-lightBtnBase text-lightTextBase hover:text-white hover:bg-lightBtnAccent dark:bg-darkBtnBase dark:text-darkTextBase dark:hover:text-darkBgBase dark:hover:bg-darkBtnAccent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+
+.sign-in-svg {
+  @apply fill-lightBgAccent stroke-lightTextBase dark:fill-darkBgAccent dark:stroke-darkTextBase;
+}
+
+.navbar-p {
+  @apply text-lightTextBase dark:text-darkTextBase;
+}
+
+.profile-dropwdown-link {
+  @apply text-lightTextBase hover:bg-lightBgBase hover:text-lightLinkBase dark:text-darkTextBase dark:hover:bg-darkBgBase dark:hover:text-darkLinkBase;
+}
