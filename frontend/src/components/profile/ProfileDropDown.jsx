@@ -1,14 +1,21 @@
 import { useState } from "react"
 
+const profileMenuItems = [
+    { name: "My profile", href: "profile" },
+    { name: "Settings", href: "settings" },
+    { name: "Help", href: "help" },
+
+]
+
 const ProfileDropDown = () => {
     const [profileMenuOpen, setProfileMenuOpen] = useState(false);
 
     return (
-        <>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <div className="hidden md:relative md:block">
                 <button
                     type="button"
-                    className="overflow-hidden rounded-full border border-gray-300 shadow-inner"
+                    className="overflow-hidden rounded-full border border-darkBorderBase dark:border-lightBorderBase shadow-inner"
                     onClick={() => setProfileMenuOpen(!profileMenuOpen)}
                 >
                     <span className="sr-only">Toggle dashboard menu</span>
@@ -22,41 +29,28 @@ const ProfileDropDown = () => {
                 </button>
                 {profileMenuOpen && (
                     <div
-                        className="absolute end-0 z-10 mt-0.5 w-56 divide-y divide-bgContrast rounded-md border border-gray-300 bg-bgContrast shadow-lg"
+                        className="absolute end-0 z-10 mt-0.5 w-56 divide-y divide-lightBorderBase dark:divide-darkBorderBase rounded-md border border-lightBorderBase bg-lightBgContrast dark:border-darkBorderBase dark:bg-darkBgContrast shadow-lg"
                         role="menu"
                         onMouseLeave={() => setProfileMenuOpen(false)}
                     >
                         <div className="p-2">
-                            <a
-                                href="#"
-                                className="block rounded-lg px-4 py-2 text-sm text-textBase hover:bg-bgBase hover:text-linkBase"
-                                role="menuitem"
-                            >
-                                My profile
-                            </a>
-
-                            <a
-                                href="#"
-                                className="block rounded-lg px-4 py-2 text-sm text-textBase hover:bg-bgBase hover:text-linkBase"
-                                role="menuitem"
-                            >
-                                Billing summary
-                            </a>
-
-                            <a
-                                href="#"
-                                className="block rounded-lg px-4 py-2 text-sm text-textBase hover:bg-bgBase hover:text-linkBase"
-                                role="menuitem"
-                            >
-                                Team settings
-                            </a>
+                            {profileMenuItems.map((item) => (
+                                <a
+                                    href={item.href}
+                                    className="block rounded-lg px-4 py-2 text-sm profile-dropwdown-link"
+                                    role="menuitem"
+                                    key={item.name}
+                                >
+                                    {item.name}
+                                </a>
+                            ))}
                         </div>
 
                         <div className="p-2">
                             <form method="POST" action="#">
                                 <button
                                     type="submit"
-                                    className="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-textBase hover:text-red-700 hover:bg-bgBase"
+                                    className="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm profile-dropwdown-link hover:text-red-500 dark:hover:text-red-700 group"
                                     role="menuitem"
                                 >
                                     <svg
@@ -65,7 +59,7 @@ const ProfileDropDown = () => {
                                         viewBox="0 0 24 24"
                                         strokeWidth="1.5"
                                         stroke="currentColor"
-                                        className="size-4"
+                                        className="size-4 group-hover:stroke-red-500 dark:group-hover:stroke-red-700"
                                     >
                                         <path
                                             strokeLinecap="round"
@@ -96,7 +90,7 @@ const ProfileDropDown = () => {
                     </svg>
                 </button>
             </div>
-        </>
+        </div>
     )
 }
 

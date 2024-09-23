@@ -1,12 +1,16 @@
-import Navbar from "./components/navbar/Navbar"
+import HomePage from "./pages/HomePage"
 import LandingPage from "./pages/LandingPage"
 
 
 const App = () => {
-  const isLoggedIn = false
+  const isLoggedIn = true
   return (
-    <div className="bg-bgBase h-[100vh]">
-      {isLoggedIn ? (<Navbar />) : (
+    <div className="bg-lightBgBase dark:bg-darkBgBase h-[100vh]">
+      {isLoggedIn ? (
+        <main>
+          <HomePage />
+        </main>
+      ) : (
         <main>
           <LandingPage />
         </main>

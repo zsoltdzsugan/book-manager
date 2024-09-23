@@ -7,7 +7,7 @@ const Searchbar = () => {
                 type="text"
                 id="Search"
                 placeholder="Search for..."
-                className="w-full rounded-2xl border-gray-500 py-2.5 pr-10 shadow-sm sm:text-sm px-3.5 bg-bgAccent lg:bg-bgContrast placeholder:text-gray-500"
+                className="w-full rounded-2xl border-2 border-lightBorderBase dark:border-darkBorderBase py-2.5 pr-10 shadow-sm sm:text-sm px-3.5 bg-lightBgAccent lg:bg-lightBgContrast placeholder:text-darkBorderBase dark:bg-darkBgAccent dark:lg:bg-darkBgContrast dark:placeholder:text-lightBorderBase"
             />
 
             <span className="absolute inset-y-0 right-0 flex items-center pr-3">
@@ -19,7 +19,7 @@ const Searchbar = () => {
                         viewBox="0 0 24 24"
                         strokeWidth="2"
                         stroke="currentColor"
-                        className="w-5 h-5 stroke-textBase hover:stroke-linkBase"
+                        className="w-5 h-5 stroke-lightTextBase hover:stroke-lightLinkBase dark:stroke-darkTextBase dark:hover:stroke-darkLinkBase"
                     >
                         <path
                             strokeLinecap="round"
