@@ -7,9 +7,9 @@ import { ArchiveBoxIcon, BookOpenIcon, BookmarkIcon, ClipboardDocumentListIcon }
 
 export default function MyBooksPage() {
     return (
-        <>
+        <div className="relative h-screen flex flex-col">
             <Navbar />
-            <div className="grid grid-cols-[auto_1fr] gap-2 lg:gap-4 w-[95vw] h-[82.5vh] mx-auto">
+            <div className="flex-grow w-[95vw] mx-auto grid grid-cols-[auto_1fr] gap-2 lg:gap-4 mb-4">
                 <div className="transition-all duration-300 bg-lightBgContrast">
                     <SideBar>
                         <SideBarMenuItem icon={<ArchiveBoxIcon className="h-6 w-6" />} text="All" num={200} active />
@@ -23,6 +23,6 @@ export default function MyBooksPage() {
                     <GridList />
                 </div>
             </div>
-        </>
+        </div>
     );
 }
