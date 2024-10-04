@@ -2,7 +2,7 @@ export default function UpdateBox() {
     return (
         <div className="bg-white shadow-md rounded-lg p-4 mb-4">
             {/* User Info */}
-            <div className="flex items-center mb-3 -ml-6 z-11">
+            <div className="flex items-center mb-3 -ml-6">
                 <img
                     src="https://via.placeholder.com/40"
                     alt="User"
@@ -22,15 +22,15 @@ export default function UpdateBox() {
                     className="w-20 h-28 object-cover rounded-lg mr-3"
                 />
                 <div>
-                    <p className="text-lg font-bold text-gray-800">The Great Gatsby</p>
-                    <p className="text-sm text-gray-500">by F. Scott Fitzgerald</p>
+                    <p className="text-lg font-bold text-gray-800">Title</p>
+                    <p className="text-sm text-gray-500">by author</p>
                 </div>
             </div>
 
             {/* Review/Update Text */}
             <div className="mb-3">
                 <p className="text-gray-700">
-                    Just finished reading *The Great Gatsby*—a truly thought-provoking novel with incredible character development and themes of societal decay. Highly recommend it!
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio voluptatum eligendi placeat laudantium assumenda obcaecati! Fugiat et molestias quae, sint porro eum ipsam quod facere modi ducimus placeat fugit corporis.
                 </p>
             </div>
 
