@@ -2,7 +2,7 @@ import { useState } from "react";
 import UpdateBox from "../review/UpdateBox";
 
 export default function TabsWithUpdates() {
-    const [activeTab, setActiveTab] = useState("News");
+    const [activeTab, setActiveTab] = useState("Updates");
 
     // Placeholder content for the tabs
     const tabContent = {
