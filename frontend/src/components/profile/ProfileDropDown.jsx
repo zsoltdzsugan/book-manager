@@ -11,11 +11,11 @@ const ProfileDropDown = () => {
     const [profileMenuOpen, setProfileMenuOpen] = useState(false);
 
     return (
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden lg:flex lg:justify-end">
             <div className="hidden md:relative md:block">
                 <button
                     type="button"
-                    className="overflow-hidden rounded-full border border-darkBorderBase dark:border-lightBorderBase shadow-inner"
+                    className="overflow-hidden rounded-full border border-teaGreen shadow-inner"
                     onClick={() => setProfileMenuOpen(!profileMenuOpen)}
                 >
                     <span className="sr-only">Toggle dashboard menu</span>
@@ -29,7 +29,7 @@ const ProfileDropDown = () => {
                 </button>
                 {profileMenuOpen && (
                     <div
-                        className="absolute end-0 z-10 mt-0.5 w-56 divide-y divide-lightBorderBase dark:divide-darkBorderBase rounded-md border border-lightBorderBase bg-lightBgContrast dark:border-darkBorderBase dark:bg-darkBgContrast shadow-lg"
+                        className="absolute end-0 z-50 mt-0.5 w-56 divide-y divide-teaGreen rounded-md border border-teaGreen bg-onyx shadow-lg"
                         role="menu"
                         onMouseLeave={() => setProfileMenuOpen(false)}
                     >
@@ -37,7 +37,7 @@ const ProfileDropDown = () => {
                             {profileMenuItems.map((item) => (
                                 <a
                                     href={item.href}
-                                    className="block rounded-lg px-4 py-2 text-sm profile-dropwdown-link"
+                                    className="block rounded-lg px-4 py-2 text-sm text-darkGreen hover:bg-teaGreen hover:text-ultraViolet font-semibold"
                                     role="menuitem"
                                     key={item.name}
                                 >
@@ -50,7 +50,7 @@ const ProfileDropDown = () => {
                             <form method="POST" action="#">
                                 <button
                                     type="submit"
-                                    className="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm profile-dropwdown-link hover:text-red-500 dark:hover:text-red-700 group"
+                                    className="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-darkGreen hover:bg-teaGreen hover:text-red-500 font-semibold group"
                                     role="menuitem"
                                 >
                                     <svg
@@ -59,7 +59,7 @@ const ProfileDropDown = () => {
                                         viewBox="0 0 24 24"
                                         strokeWidth="1.5"
                                         stroke="currentColor"
-                                        className="size-4 group-hover:stroke-red-500 dark:group-hover:stroke-red-700"
+                                        className="size-4 stroke-darkGreen group-hover:stroke-red-500 dark:group-hover:stroke-red-700"
                                     >
                                         <path
                                             strokeLinecap="round"
