@@ -2,30 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  @apply text-lightTextBase dark:text-darkTextBase;
-}
-
 .sign-in-link {
-  @apply text-lightLinkBase hover:text-lightLinkAccent dark:text-darkLinkBase dark:hover:text-darkLinkAccent;
-}
-
-.sign-in-input {
-  @apply bg-white dark:bg-darkBgBase placeholder:text-lightBorderBase border-2 border-lightBorderBase dark:border-darkBorderBase;
+  @apply text-blush hover:text-caribbeanCurrent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 rounded-sm;
 }
 
 .sign-in-button {
-  @apply bg-lightBtnBase text-lightTextBase hover:text-white hover:bg-lightBtnAccent dark:bg-darkBtnBase dark:text-darkTextBase dark:hover:text-darkBgBase dark:hover:bg-darkBtnAccent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+  @apply bg-darkGreen text-cornsilk border-2 border-darkGreen hover:text-cornsilk hover:bg-ultraViolet/75 hover:border-ultraViolet/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
 }
 
-.sign-in-svg {
-  @apply fill-lightBgAccent stroke-lightTextBase dark:fill-darkBgAccent dark:stroke-darkTextBase;
+.sign-in-button-reverse {
+  @apply bg-cornsilk text-darkGreen border-2 border-darkGreen hover:text-cornsilk hover:bg-ultraViolet/75 hover:border-ultraViolet/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
 }
 
-.navbar-p {
-  @apply text-lightTextBase dark:text-darkTextBase;
+.sign-in-input {
+  @apply bg-white placeholder:text-onyx/50 border-2 border-onyx/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
 }
 
-.profile-dropwdown-link {
-  @apply text-lightTextBase hover:bg-lightBgBase hover:text-lightLinkBase dark:text-darkTextBase dark:hover:bg-darkBgBase dark:hover:text-darkLinkBase;
+.logo {
+  @apply fill-cornsilk stroke-darkGreen group-hover:stroke-ultraViolet group-hover:fill-cornsilk;
+}
+
+.logo-h1 {
+  @apply font-bold text-darkGreen group-hover:text-ultraViolet group-hover:decoration-ultraViolet;
+}
+
+.baseButtonDefault {
+  @apply bg-darkGreen text-cornsilk  border-darkGreen hover:text-cornsilk hover:bg-ultraViolet/75 hover:border-ultraViolet focus:ring active:text-cornsilk;
+}
+
+.borderButtonDefault {
+  @apply bg-transparent text-darkGreen  border-darkGreen hover:text-cornsilk hover:bg-ultraViolet/75 hover:border-ultraViolet focus:ring active:bg-ultraViolet;
+}
+
+.RatingFillColor {
+  @apply text-blush hover:text-blush/50;
+}
+
+.scrollbar-hidden {
+  overflow-y: scroll;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
