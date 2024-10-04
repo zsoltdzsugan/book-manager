@@ -23,7 +23,7 @@ export default function SideBarMenuItem({ icon, text, active, num }) {
             )}
             {/* Tooltip-like text when not expanded */}
             {!expanded && (
-                <div className={`absolute left-full whitespace-nowrap rounded-md px-2 py-1 ml-6 bg-indigo-100 text-indigo-800 text-sm invisible opacity-20 -translate-x-3 transition-all group-hover:visible group-hover:opacity-100 group-hover:translate-x-0`}>
+                <div className={`z-10 absolute left-full whitespace-nowrap rounded-md px-2 py-1 ml-6 bg-indigo-100 text-indigo-800 text-sm invisible opacity-20 -translate-x-3 transition-all group-hover:visible group-hover:opacity-100 group-hover:translate-x-0`}>
                     {text}
                 </div>
             )}
