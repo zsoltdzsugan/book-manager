@@ -1,11 +1,14 @@
+import BaseButton from "../button/BaseButton";
+import BorderButton from "../button/BorderButton";
+import Logo from "../logo/Logo";
+import GoogleLogo from "../logo/GoogleLogo"
+
 export default function SignUp() {
     return (
-        <>
+        <div className="z-40 rounded-lg bg-cornsilk shadow-md shadow-onyx border-2 border-onyx/50 w-full lg:w-[460px] lg:h-[550px]">
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="flex flex-col items-center sm:mx-auto sm:w-full sm:max-w-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-10 sign-in-svg">
-                        <path d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z" />
-                    </svg>
+                    <Logo iconSize={10} strokeSize={1} hasTitle={false} isLink={false} />
                     <h2 className="mt-5 text-center text-2xl font-bold leading-9 tracking-tight">
                         Sign in to your account
                     </h2>
@@ -53,25 +56,10 @@ export default function SignUp() {
                         </div>
 
                         <div>
-                            <button
-                                type="submit"
-                                className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm sign-in-button"
-                            >
-                                Sign in
-                            </button>
+                            <BaseButton text={'Sign in'} px={3} py={1.5} />
                             <div className="flex gap-2 my-2">
-                                <button
-                                    type="submit"
-                                    className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm sign-in-button"
-                                >
-                                    Sign in w/ Google
-                                </button>
-                                <button
-                                    type="submit"
-                                    className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm sign-in-button"
-                                >
-                                    Sign in w/ Facebook
-                                </button>
+                                <BorderButton text={'Sign in with Google'} px={3} py={1.5} />
+                                <BorderButton text={'Sign in with Facebook'} px={3} py={1.5} />
                             </div>
                         </div>
                     </form>
@@ -84,6 +72,6 @@ export default function SignUp() {
                     </p>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
