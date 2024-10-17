@@ -1,36 +1,62 @@
-const Searchbar = () => {
+import { Box } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import { styled, alpha } from "@mui/system";
+import InputBase from "@mui/material/InputBase";
+
+const Search = styled("div")(({ theme }) => ({
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    "&:hover": {
+        backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    width: "100%",
+    [theme.breakpoints.down("lg")]: {
+        display: "none",
+    },
+}));
+
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: "inherit",
+    width: "100%",
+    "& .MuiInputBase-input": {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        transition: theme.transitions.create("width"),
+        width: "100%",
+    },
+    [theme.breakpoints.down("lg")]: {
+        display: "none",
+    },
+}));
+
+export default function Searchbar() {
     return (
-        <div className="relative w-full h-10 z-10 flex justify-center align-middle items-center">
-            <label htmlFor="Search" className="sr-only">Search</label>
-
-            <input
-                type="text"
-                id="Search"
-                placeholder="Search for..."
-                className="w-full flex rounded-2xl border-2 border-lightBorderBase dark:border-darkBorderBase py-2.5 pr-10 shadow-sm sm:text-sm px-3.5 bg-lightBgAccent lg:bg-lightBgContrast placeholder:text-darkBorderBase dark:bg-darkBgAccent dark:lg:bg-darkBgContrast dark:placeholder:text-lightBorderBase"
-            />
-
-            <span className="absolute inset-y-0 right-0 flex items-center pr-3">
-                <button type="button" className="text-onyx lg:py-1 lg:px-0.5">
-                    <span className="sr-only">Search</span>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="2"
-                        stroke="currentColor"
-                        className="w-5 h-5 stroke-darkGreen hover:stroke-ultraViolet"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                        />
-                    </svg>
-                </button>
-            </span>
-        </div>
-    );
-};
-
-export default Searchbar;
+        <Box sx={{
+            display: { xs: "none", lg: "flex" },
+            alignItems: "center",
+            width: "100%",
+        }}>
+            <Search>
+                <SearchIconWrapper>
+                    <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                    placeholder="Search…"
+                    inputProps={{ "aria-label": "search" }}
+                />
+            </Search>
+        </Box>
+    )
+}

@@ -1,19 +1,34 @@
 import BaseButton from "../button/BaseButton";
+import { useNavbarHeight } from "../layout/Layout";
 import StarRating from "../rating/StarRating";
+import { useEffect, useState } from "react";
 
 export default function RecommendedCard() {
-    return (
-        <>
-            <div className="flex">
+    const navbarHeight = useNavbarHeight();
+    const [lineClampClass, setLineClampClass] = useState("line-clamp-x9"); // Default to line-clamp-x9
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLineClampClass(navbarHeight === "9rem" ? "line-clamp-sm" : "line-clamp-lg");
+        }, 500); // Delay of 0.5 seconds
+
+        return () => clearTimeout(timer);
+    }, [navbarHeight]);
+
+    return (
+        <div className="flex flex-col h-full">
+            {/* Image and Content Wrapper */}
+            <div className="flex flex-grow">
+                {/* Image */}
                 <a href="#" className="flex items-center gap-2">
                     <img
                         alt=""
                         src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                        className="h-[200px] w-auto object-cover"
+                        className="h-auto w-32 object-cover"
                     />
                 </a>
-                <div className="flex flex-col flex-grow px-1.5 justify-center">
+                {/* Book Details */}
+                <div className="flex flex-col flex-grow px-1.5 justify-center items-start gap-2">
                     {/* Title Link */}
                     <a href="/book-link" className="text-lg font-bold sm:text-lg hover:underline">
                         Title
@@ -26,19 +41,18 @@ export default function RecommendedCard() {
                             author
                         </a>
                     </div>
-                    <div>
-                        <StarRating ratingType={'half-rating'} isReadOnly={true} />
-                    </div>
-                    <div>
-                        <BaseButton text={'Want to read'} px={6} py={0.5} colorClass={`text-cornsilk bg-ultraViolet border-ultraViolet hover:bg-blush hover:text-onyx`} />
+                    <div className="my-2 flex flex-col justify-start w-full gap-4">
+                        <StarRating isReadOnly={true} />
+                        <BaseButton text={"Want to read"} px={6} py={0.25} colorClass={`rounded-md text-cornsilk bg-ultraViolet border-ultraViolet hover:bg-ultraViolet/25 hover:border-blush hover:text-blush`} />
                     </div>
                 </div>
             </div>
-            <div>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi assumenda explicabo, eum sint, ipsam tempore deserunt doloribus cumque ad ullam eius aperiam fugiat? Eum delectus repudiandae adipisci consectetur necessitatibus dolore?</p>
+            {/* Description Area */}
+            <div className="mt-2 flex-grow">
+                <p className={`text-sm overflow-hidden text-ellipsis line-clamp ${lineClampClass}`}>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi assumenda explicabo, eum sint, ipsam tempore deserunt doloribus cumque ad ullam eius aperiam fugiat? Eum delectus repudiandae adipisci consectetur necessitatibus dolore? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus dolorum, quis nostrum illo temporibus quaerat sunt explicabo perferendis voluptate, nam odio obcaecati architecto officiis dicta distinctio dolorem sapiente cumque deleniti. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae, atque. Aliquam inventore aut suscipit maxime nemo doloremque voluptatem dolore blanditiis vitae, dolorem voluptas nesciunt! Sint reprehenderit quaerat quo voluptas deserunt.
+                </p>
             </div>
-        </>
+        </div>
     );
 }
-
-

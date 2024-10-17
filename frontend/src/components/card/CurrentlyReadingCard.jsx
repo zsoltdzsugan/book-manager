@@ -26,9 +26,13 @@ export default function CurrentlyReadingCard() {
 
                 </div>
 
-                <div className="mt-2">
-                    <ProgressBar />
-                    <BorderButton text={'Update progress'} px={6} py={0.5} colorClass={`border-ultraViolet hover:border-blush text-ultraViolet hover:text-blush`} />
+                <div className="mt-2 flex flex-col">
+                    <div>
+                        <ProgressBar />
+                    </div>
+                    <div>
+                        <BorderButton text={"Update progress"} w={"full"} h={"auto"} px={6} py={0.25} colorClass={`rounded-md border-ultraViolet hover:border-blush text-ultraViolet hover:text-blush`} />
+                    </div>
                 </div>
             </div>
         </div>

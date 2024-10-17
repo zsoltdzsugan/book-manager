@@ -1,40 +1,75 @@
+import { useTheme } from "@mui/material/styles";
+import { Typography, Link, Box } from "@mui/material";
+import { MdAutoStories } from "react-icons/md";
+
 export default function Logo({ iconSize, strokeSize, hasTitle, isLink }) {
+    const theme = useTheme()
+    const icon = iconSize * 3 || "";
+
     return (
-        <div className="flex justify-start mx-4">
+        <Box sx={{
+            position: "relative",
+            display: "flex",
+        }}>
+
             {isLink ? (
-                <a href="#" className="group py-1.5 flex justify-center align-middle items-center z-40" >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className={`w-${iconSize} h-${iconSize} stroke-${strokeSize} logo`}
-                    >
-                        <path d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z" />
-                    </svg>
+                <Link
+                    href="your-link-here" // Replace with your actual link
+                    sx={{
+                        textDecoration: 'none', // Remove the default underline
+                        display: 'inline-flex', // Keep the icon and text aligned
+                        alignItems: 'center',
+                        '&:hover h4': {
+                            color: theme.palette.secondary.main, // Change text color on hover
+                        },
+                    }}
+                >
+                    <MdAutoStories
+                        className="logo-icon"
+                        style={{
+                            width: icon,
+                            height: icon,
+                            color: theme.palette.primary.main,
+                            transition: 'color 0.3s ease-in-out', // Smooth transition for hover effect
+                        }}
+                    />
                     {hasTitle && (
-                        <h1 className="logo-h1">
+                        <Typography
+                            variant="h4"
+                            sx={{
+                                borderBottom: "3px solid",
+                                borderBottomLeftRadius: "3px",
+                                fontWeight: "bold",
+                                display: "inline-block",
+                                color: theme.palette.primary.main,
+                                transition: 'color 0.3s ease', // Smooth transition for hover effect
+                            }}
+                        >
                             bestReads
-                        </h1>
+                        </Typography>
                     )}
-                </a>
+                </Link>
+
             ) : (
                 <>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className={`w-${iconSize} h-${iconSize} stroke-${strokeSize} logo`}
-                    >
-                        <path d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z" />
-                    </svg>
+                    <MdAutoStories style={{ width: icon, height: icon }} />
                     {hasTitle && (
-                        <h1 className="logo-h1">
-                            best<span className="logo-span">Reads</span>
-                        </h1>
+                        <Typography
+                            variant="h4"
+                            sx={{
+                                borderBottom: "3px solid",
+                                borderBottomLeftRadius: "3px",
+                                fontWeight: "bold",
+                                display: "inline-block",
+                                color: theme.palette.primary.main,
+                                transition: 'color 0.3s ease', // Smooth transition for hover effect
+                            }}
+                        >
+                            bestReads
+                        </Typography>
                     )}
                 </>
             )}
-        </div>
-
+        </Box>
     )
 }

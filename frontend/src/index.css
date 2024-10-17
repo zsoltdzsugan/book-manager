@@ -2,42 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.sign-in-link {
-  @apply text-blush hover:text-caribbeanCurrent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 rounded-sm;
-}
-
-.sign-in-button {
-  @apply bg-darkGreen text-cornsilk border-2 border-darkGreen hover:text-cornsilk hover:bg-ultraViolet/75 hover:border-ultraViolet/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
-}
-
-.sign-in-button-reverse {
-  @apply bg-cornsilk text-darkGreen border-2 border-darkGreen hover:text-cornsilk hover:bg-ultraViolet/75 hover:border-ultraViolet/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
-}
-
-.sign-in-input {
-  @apply bg-white placeholder:text-onyx/50 border-2 border-onyx/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
-}
-
-.logo {
-  @apply fill-cornsilk stroke-darkGreen group-hover:stroke-ultraViolet group-hover:fill-cornsilk;
-}
-
-.logo-h1 {
-  @apply font-bold text-darkGreen group-hover:text-ultraViolet group-hover:decoration-ultraViolet;
-}
-
-.baseButtonDefault {
-  @apply bg-darkGreen text-cornsilk  border-darkGreen hover:text-cornsilk hover:bg-ultraViolet/75 hover:border-ultraViolet focus:ring active:text-cornsilk;
-}
-
-.borderButtonDefault {
-  @apply bg-transparent text-darkGreen  border-darkGreen hover:text-cornsilk hover:bg-ultraViolet/75 hover:border-ultraViolet focus:ring active:bg-ultraViolet;
-}
-
-.RatingFillColor {
-  @apply text-blush hover:text-blush/50;
-}
-
 .scrollbar-hidden {
   overflow-y: scroll;
 }
@@ -49,4 +13,43 @@
 .scrollbar-hidden {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: max-height 1s ease-in-out;
+}
+
+.line-clamp-sm {
+  -webkit-line-clamp: 8;
+  max-height: 156px;
+  transition: max-height 2.5s ease-in-out;
+}
+
+.line-clamp-lg {
+  -webkit-line-clamp: 11;
+  max-height: 240px;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.grid-cols-x13 {
+  grid-template-columns: repeat(13, minmax(0, 1fr));
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 0.75rem;
+  }
+  .scrollbar-ml-1::-webkit-scrollbar {
+    margin-left: 1rem;
+  }
+  .scrollbar-thumb::-webkit-scrollbar-thumb {
+    background-color: #56638aff;
+    border-radius: 4px;
+  }
+  .scrollbar-track::-webkit-scrollbar-track {
+    background-color: #454545ff;
+  }
 }

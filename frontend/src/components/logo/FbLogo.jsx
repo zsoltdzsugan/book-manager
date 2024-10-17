@@ -5,7 +5,7 @@ export default function FbLogo({ iconSize }) {
         <div className="">
             <span
                 style={{ width: `${spanSize}rem`, height: `${spanSize}rem` }}
-                className="bg-onyx/40 hover:bg-onyx hover:fill-blush  rounded-full flex justify-center items-center"
+                className="bg-onyx/40 fill-ultraViolet hover:bg-onyx hover:fill-blush  rounded-full flex justify-center items-center"
             >
                 <svg
                     role="img"

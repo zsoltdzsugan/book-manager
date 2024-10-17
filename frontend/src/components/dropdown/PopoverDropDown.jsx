@@ -12,7 +12,7 @@ export default function PopoverDropdown({ navItems }) {
     return (
         <div className="hidden relative lg:flex lg:flex-grow lg:justify-center -ml-24 z-50">
             <PopoverGroup className="relative hidden lg:flex lg:gap-x-12">
-                {navItems.filter((item) => item.onLargeScreen).map((item) =>
+                {navItems.filter((item) => !item.isMobileOnly).map((item) =>
                     item.isDropDown ? (
                         <Popover key={item.name} className="relative z-50">
                             <PopoverButton className="group flex items-center gap-x-1 text-md font-bold leading-6 text-darkGreen hover:text-ultraViolet">

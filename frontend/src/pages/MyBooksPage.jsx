@@ -1,28 +1,21 @@
+import SideBar, { SidebarVisible } from "../components/sidebar/SideBar";
 import GridList from "../components/list/GridList";
-import Navbar from "../components/navbar/Navbar";
-import BooksPagination from "../components/pagination/BooksPagination";
-import SideBar from "../components/sidebar/SideBar";
-import SideBarMenuItem from "../components/sidebar/SideBarMenuItem";
-import { ArchiveBoxIcon, BookOpenIcon, BookmarkIcon, ClipboardDocumentListIcon } from '@heroicons/react/24/solid';
+import { useState } from "react";
 
 export default function MyBooksPage() {
+    const [isSidebarCollapsed, setSidebarCollapsed] = useState(false);
+
     return (
-        <div className="relative h-screen flex flex-col">
-            <Navbar />
-            <div className="flex-grow w-[95vw] mx-auto grid grid-cols-[auto_1fr] gap-2 lg:gap-4 mb-4">
-                <div className="transition-all duration-300 bg-lightBgContrast">
-                    <SideBar>
-                        <SideBarMenuItem icon={<ArchiveBoxIcon className="h-6 w-6" />} text="All" num={200} active />
-                        <SideBarMenuItem icon={<BookOpenIcon className="h-6 w-6" />} text="Currently Reading" num={5} />
-                        <SideBarMenuItem icon={<BookmarkIcon className="h-6 w-6" />} text="Want to Read" num={10570} />
-                        <SideBarMenuItem icon={<ClipboardDocumentListIcon className="h-6 w-6" />} text="Read" num={666} />
-                    </SideBar>
+        <div className="relative w-full flex mx-2">
+            <SidebarVisible.Provider value={{ isSidebarCollapsed, setSidebarCollapsed }}>
+                <SideBar />
+                <div className="flex flex-grow">
+                    <div className="flex flex-col w-full">
+                        <GridList />
+                    </div>
                 </div>
-                <div className="rounded-lg transition-all duration-300 bg-lightBgContrast relative p-6 min-h-fit flex flex-col gap-6">
-                    <BooksPagination />
-                    <GridList />
-                </div>
-            </div>
+            </SidebarVisible.Provider>
         </div>
     );
 }
+

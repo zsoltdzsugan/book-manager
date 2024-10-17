@@ -1,48 +1,111 @@
-import Divider from "../components/divider/Divider";
-import SignIn from "../components/forms/SignIn";
-import Logo from "../components/logo/Logo";
+import { Box, Typography, Paper } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import Logo from '../components/logo/Logo';
+import WelcomeMessage from "../components/other/WelcomeMessage";
+import { alpha } from '@mui/system';
 
-const LandingPage = () => {
+export default function LandingPage() {
+    const theme = useTheme();
+
     return (
-        <div className="flex flex-col h-screen items-center bg-papayaWhip text-onyx">
-            <div className="relative w-full">
-                {/* Gradient Wrapper */}
-                <div className="absolute inset-0 w-full h-[50vh] bg-gradient-to-b from-papayaWhip to-buff">
-                </div>
+        <Box sx={{
+            position: "relative",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            backgroundColor: theme.palette.background.main,
+        }}>
+            {/* Header with Logo */}
+            <Box sx={{
+                position: "relative",
+                width: "50%",
+                height: "10vh",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}>
+                <Logo iconSize={20} hasTitle={true} isLink={true} />
+            </Box>
 
-                <section className="relative h-[10vh] w-[60vw] flex items-center text-2xl font-bold mx-auto">
-                    <Logo iconSize={10} strokeSize={1} hasTitle={true} isLink={true} />
-                </section>
+            {/* Main Content Area */}
+            <Box
+                sx={{
+                    position: "relative",
+                    height: "35vh",
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
+                    backgroundImage: 'url("/_06cc4f58-7948-45f7-9db3-cc9dac048dab.jpeg")',
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                }}
+            >
+                {/* Content with backdrop blur and centered text */}
+                <Box
+                    sx={{
+                        position: "relative",
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        backgroundColor: alpha(theme.palette.secondary.dark, 0.65),
+                        zIndex: 10,
+                    }}
+                >
+                    <Box
+                        sx={{
+                            width: "45vw",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            paddingLeft: "1rem", // Adjust padding as necessary
+                        }}
+                    >
+                        <WelcomeMessage />
+                    </Box>
 
-                <Divider my={1} />
+                    {/* SignIn component */}
+                    <Paper
+                        elevation={3}
+                        sx={{
+                            position: "relative",
+                            display: "flex",
+                            alignItems: "center",
+                            zIndex: 20,
+                            marginTop: "-4rem",
+                            justifyContent: "center",
+                            borderRadius: "8px",
+                            border: "2px solid rgba(0, 0, 0, 0.25)", // Border color
+                            background: alpha(theme.palette.background.main, 0.90),
+                            height: "70ch",
+                            width: "55ch",
+                        }}
+                    >
+                        {/* Replace with your SignIn component */}
+                        <Typography variant="h5">SignIn placeholder</Typography>
+                    </Paper>
+                </Box>
+            </Box>
 
-                {/* Section with background image and gradient overlay */}
-                <section className="relative h-[40vh] w-full flex justify-center shadow-lg shadow-buff bg-contain bg-center bg-[url('/_06cc4f58-7948-45f7-9db3-cc9dac048dab.jpeg')]">
-                    {/* Content with backdrop blur and centered text */}
-                    <div className="relative w-full flex justify-center bg-onyx/75 z-10">
-                        <div className="w-[45vw] flex flex-col justify-center left-16">
-                            <p className="text-3xl py-4 text-cornsilk">Welcome on bestReads!</p>
-                            <p className="text-5xl px-2 text-cornsilk">1. Browse</p>
-                            <p className="text-5xl px-2 text-cornsilk">2. Read</p>
-                            <p className="text-5xl px-2 text-cornsilk">3. ...</p>
-                            <p className="text-5xl px-2 text-cornsilk">4. Repeat</p>
-                        </div>
-
-                        {/* SignIn component */}
-                        <div className="relative flex items-center z-20 mt-20">
-                            <SignIn />
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            {/* Additional Section */}
-            <section className="relative h-[50vh] w-full flex flex-col items-center justify-center dark:bg-darkBgBase">
-                <h2 className="text-3xl">Something Something</h2>
-                <p className="text-xl">Additional content goes here!</p>
-            </section>
-        </div>
+            {/* Additional Space/Content */}
+            <Box sx={{
+                width: "100%",
+                height: "55vh",
+            }}>
+                <Typography variant="h3" sx={{
+                    fontWeight: "bold",
+                    color: "green",
+                }}>
+                    Something something!
+                </Typography>
+                <Typography variant="p" sx={{
+                    fontWeight: "bold",
+                    color: "green",
+                }}>
+                    Additional content goes here!
+                </Typography>
+            </Box>
+        </Box>
     );
-};
-
-export default LandingPage;
+}

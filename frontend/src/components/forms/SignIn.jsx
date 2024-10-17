@@ -2,6 +2,7 @@ import BaseButton from "../button/BaseButton";
 import BorderButton from "../button/BorderButton";
 import Logo from "../logo/Logo";
 import GoogleLogo from "../logo/GoogleLogo"
+import BasicPasswordInput from "../input/BasicPasswordInput";
 
 export default function SignUp() {
     return (
@@ -33,39 +34,29 @@ export default function SignUp() {
                         </div>
 
                         <div>
-                            <div className="flex items-center justify-between">
-                                <label htmlFor="password" className="block text-sm font-medium leading-6">
-                                    Password
-                                </label>
+                            <div className="flex flex-col items-end justify-between">
                                 <div className="text-sm">
                                     <a href="#" className="font-semibold sign-in-link">
                                         Forgot password?
                                     </a>
                                 </div>
-                            </div>
-                            <div className="mt-2">
-                                <input
-                                    id="password"
-                                    name="password"
-                                    type="password"
-                                    required
-                                    autoComplete="current-password"
-                                    className="block w-full rounded-md py-1.5 px-1.5 shadow-sm sm:text-sm sm:leading-6 sign-in-input"
-                                />
+                                <div className="mt-2 justify-start">
+                                    <BasicPasswordInput width={"40ch"} />
+                                </div>
                             </div>
                         </div>
 
                         <div>
-                            <BaseButton text={'Sign in'} px={3} py={1.5} />
-                            <div className="flex gap-2 my-2">
-                                <BorderButton text={'Sign in with Google'} px={3} py={1.5} />
-                                <BorderButton text={'Sign in with Facebook'} px={3} py={1.5} />
+                            <BaseButton text={"Sign in"} px={3} py={1.5} />
+                            <div className="flex gap-2 my-2 items-center">
+                                <BorderButton text={"Sign in with Google"} px={3} py={1.5} />
+                                <BorderButton text={"Sign in with Facebook"} px={3} py={1.5} />
                             </div>
                         </div>
                     </form>
 
                     <p className="mt-7 text-center text-sm">
-                        Not a member yet?{' '}
+                        Not a member yet?{" "}
                         <a href="#" className="font-semibold leading-6 sign-in-link">
                             Sign Up
                         </a>

@@ -12,7 +12,7 @@ const ProfileDropDown = () => {
 
     return (
         <div className="hidden lg:flex lg:justify-end">
-            <div className="hidden md:relative md:block">
+            <div className="hidden md:relative md:block justify-center align-middle items-center mt-1.5">
                 <button
                     type="button"
                     className="overflow-hidden rounded-full border border-teaGreen shadow-inner"
@@ -23,7 +23,7 @@ const ProfileDropDown = () => {
                     <img
                         src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt=""
-                        className="size-10 object-cover"
+                        className="w-12 h-12 object-cover"
                     />
 
                 </button>
