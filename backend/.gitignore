@@ -1,0 +1,8 @@
+.envrc
+.air.toml
+internal/
+scripts/
+docs/
+bin/
+Makefile
+docker-compose.yml
