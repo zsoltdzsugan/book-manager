@@ -8,6 +8,9 @@ CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(255) NOT NULL UNIQUE,
     email CITEXT NOT NULL UNIQUE,
     password BYTEA NOT NULL,
+    birth_date DATE,
+    gender VARCHAR(50),
+    country VARCHAR(100),
     created_at TIMESTAMP(0) WITH TIME ZONE NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP(0) WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
